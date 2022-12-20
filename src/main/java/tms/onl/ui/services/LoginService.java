@@ -1,15 +1,19 @@
 package tms.onl.ui.services;
 
-import lombok.extern.log4j.Log4j2;
+import io.qameta.allure.Step;
 import tms.onl.ui.model.User;
 import tms.onl.ui.pages.LoginPage;
 import tms.onl.ui.pages.ProjectsPage;
+import tms.onl.ui.utils.LoggerMessage;
 
-@Log4j2
 public class LoginService {
 
     private LoginPage loginPage = new LoginPage();
+    private static final String LOGIN_PROCESS_NAME = "Login";
 
+    public LoginPage openPage() {
+        return loginPage.openPage();
+    }
     public ProjectsPage successfulLogin(User user) {
         login(user);
         return new ProjectsPage();
@@ -20,12 +24,12 @@ public class LoginService {
         return new LoginPage();
     }
 
+    @Step(LOGIN_PROCESS_NAME)
     private void login(User user) {
-        log.info("Login start");
-        loginPage.openPage()
-                .fillInEmail(user.getEmail())
+        LoggerMessage.logStartProcessInfo(LOGIN_PROCESS_NAME);
+        loginPage.fillInEmail(user.getEmail())
                 .fillInPassword(user.getPassword())
                 .clickLoginButton();
-        log.info("Login ends");
+        LoggerMessage.logEndProcessInfo(LOGIN_PROCESS_NAME);
     }
 }

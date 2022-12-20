@@ -1,4 +1,3 @@
 Login Page
     1. Successful login
     2. Incorrect password
-    3. Empty field(s)
