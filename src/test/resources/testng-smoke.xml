@@ -4,7 +4,7 @@
 <suite name="Smoke">
     <test name="Login Page Test">
         <classes>
-            <class name="tms.onl.tests.ui.LoginPageTest"></class>
+            <class name="tms.onl.tests.ui.ProjectPageTest"></class>
         </classes>
     </test>
 </suite>
