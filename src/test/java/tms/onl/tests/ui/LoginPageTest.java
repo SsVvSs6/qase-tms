@@ -8,12 +8,13 @@ import tms.onl.ui.model.User;
 import tms.onl.ui.services.LoginService;
 import tms.onl.utils.Retry;
 
+import static tms.onl.utils.StringConstant.VALID_EMAIL;
+import static tms.onl.utils.StringConstant.VALID_PASSWORD;
+
 public class LoginPageTest extends BaseTest {
 
     protected LoginService loginService;
-    private static final String VALID_EMAIL = "pemawes802@diratu.com";
     private static final String INVALID_EMAIL = "ytrewq@qwerty.com";
-    private static final String VALID_PASSWORD = "Dbft!65*";
     private static final String INVALID_PASSWORD = "sbft!65*";
 
     @BeforeClass
@@ -34,7 +35,8 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test (dataProvider = "Incorrect email or password set",
-            description = "Unsuccessful authorization with incorrect password", retryAnalyzer = Retry.class, enabled = true)
+            description = "Unsuccessful authorization with incorrect password", retryAnalyzer = Retry.class,
+            enabled = true)
     public void verifyInvalidPasswordTest(String email, String password) {
         String actualErrorText = loginService.unsuccessfulLogin(User.builder()
                         .email(email)

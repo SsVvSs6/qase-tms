@@ -1,3 +1,10 @@
 Login Page
     1. Successful login
     2. Incorrect password
+Project Page
+    3. Collapse/expand suite column
+    4. Create suite
+    5. Delete suite
+    6. Clone suite
+    7. Edit suite
+    8. Create quick test
