@@ -37,6 +37,9 @@ public class ProjectPage extends BasePage {
     @FindBy (xpath = "//button[contains(@class,'kUdMAa')]/i[contains(@class,'right')]")
     private WebElement testCaseRightButton;
 
+    @FindBy (xpath = "//button[@class='hhg1oh']")
+    private WebElement closeTestCaseModalWindowButton;
+
     private static final String SUITE_BUTTON_X_PATH = "//div[contains(text(),'%s')]";
     private static final String EDIT_SUITE_BUTTON_NAME = "Edit";
     private static final String CLONE_SUITE_BUTTON_NAME = "Clone";
@@ -103,6 +106,11 @@ public class ProjectPage extends BasePage {
     public CaseActionModalWindowPage clickDeleteTestCaseButton() {
         clickButtonWithStringFormat(TEST_CASE_BUTTON_X_PATH, DELETE_BUTTON_TEXT);
         return new CaseActionModalWindowPage();
+    }
+
+    public ProjectsPage clickCloseTestCaseModalWindowButton() {
+        closeTestCaseModalWindowButton.click();
+        return new ProjectsPage();
     }
 
     public boolean isTestCaseModalWindowDisplayed() {

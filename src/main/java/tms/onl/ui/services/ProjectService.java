@@ -92,4 +92,9 @@ public class ProjectService {
         LoggerMessage.logEndProcessInfo(DELETION_TEST_CASE_PROCESS_NAME);
         return new ProjectPage();
     }
+
+    public ProjectPage closeTestCaseModalWindow() {
+        new ProjectPage().clickCloseTestCaseModalWindowButton();
+        return new ProjectPage();
+    }
 }
