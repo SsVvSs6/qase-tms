@@ -17,6 +17,7 @@ public class ProjectPageTest extends BaseTest {
 
     private final String creationSuiteName = "Any Name";
     private final String editSuiteName = "Any edited name";
+    private final String testCaseName = "Test case";
 
     @BeforeClass
     public void login() {
@@ -73,5 +74,26 @@ public class ProjectPageTest extends BaseTest {
         boolean isDeletionSuccessful = new ProjectService().deleteSuite(editSuiteName)
                 .isSuccessfulDeleteSuiteMessageDisplayed();
         Assert.assertTrue(isDeletionSuccessful);
+    }
+
+    @Test (description = "Open test case modal window", priority = 5, retryAnalyzer = Retry.class, enabled = true)
+    public void verifyTestCaseModalWindowIsOpenedTest() {
+        boolean isTestCaseModalWindowOpened = new ProjectService().openTestCaseModalWindow(testCaseName)
+                .isTestCaseModalWindowDisplayed();
+        Assert.assertTrue(isTestCaseModalWindowOpened);
+    }
+
+    @Test (description = "Clone test case", priority = 6, retryAnalyzer = Retry.class, enabled = true)
+    public void verifyCloneTestCaseTest() {
+        boolean isCaseCloned = new ProjectService().cloneTestCase(testCaseName)
+                .isSuccessfulCloneCaseMessageDisplayed();
+        Assert.assertTrue(isCaseCloned);
+    }
+
+    @Test (description = "Delete test case", priority = 7, retryAnalyzer = Retry.class, enabled = true)
+    public void verifyDeleteTestCaseTest() {
+        boolean isCaseCloned = new ProjectService().deleteTestCase(testCaseName)
+                .isSuccessfulDeleteCaseMessageDisplayed();
+        Assert.assertTrue(isCaseCloned);
     }
 }
