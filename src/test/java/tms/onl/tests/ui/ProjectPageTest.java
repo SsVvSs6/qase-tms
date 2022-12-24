@@ -19,7 +19,7 @@ public class ProjectPageTest extends BaseTest {
     private final String editSuiteName = "Any edited name";
     private final String testCaseName = "Test case";
 
-    @BeforeClass
+    @BeforeClass (groups = "Short")
     public void login() {
         LoginService loginService = new LoginService();
         loginService.openPage();
@@ -31,7 +31,8 @@ public class ProjectPageTest extends BaseTest {
         new ProjectService().openPage(projectUrl);
     }
 
-    @Test (description = "Collapse and expand suite column test", retryAnalyzer = Retry.class, enabled = true)
+    @Test (description = "Collapse and expand suite column test", groups = "Short", retryAnalyzer = Retry.class,
+            enabled = true)
     public void verifyCollapseAndExpandSuiteColumnTest() {
         boolean isSuiteColumnCollapsed = new ProjectService().clickSuiteColumnButton().isColumnLineDisplayed();
         boolean isSuiteColumnExpanded = new ProjectService().clickSuiteColumnButton().isColumnLineDisplayed();
@@ -41,7 +42,8 @@ public class ProjectPageTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test (description = "New suite creation", priority = 1, retryAnalyzer = Retry.class, enabled = true)
+    @Test (description = "New suite creation", priority = 1, groups = "Short", retryAnalyzer = Retry.class,
+            enabled = true)
     public void verifyCreateNewSuiteTest() {
         String suitePrecondition = "Preconditions";
         String suiteDescription = "Description";
@@ -80,6 +82,7 @@ public class ProjectPageTest extends BaseTest {
     public void verifyTestCaseModalWindowIsOpenedTest() {
         boolean isTestCaseModalWindowOpened = new ProjectService().openTestCaseModalWindow(testCaseName)
                 .isTestCaseModalWindowDisplayed();
+        new ProjectService().closeTestCaseModalWindow();
         Assert.assertTrue(isTestCaseModalWindowOpened);
     }
 

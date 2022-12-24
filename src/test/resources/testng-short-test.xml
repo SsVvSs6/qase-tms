@@ -3,6 +3,11 @@
 
 <suite name="Short" parallel="tests" thread-count="2">
     <test name="Project Page Test">
+        <groups>
+            <run>
+                <include name="Short"/>
+            </run>
+        </groups>
         <classes>
             <class name="tms.onl.tests.ui.ProjectPageTest"></class>
         </classes>
