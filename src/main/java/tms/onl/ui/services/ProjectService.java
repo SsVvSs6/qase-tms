@@ -9,8 +9,11 @@ public class ProjectService {
 
     private static final String CREATION_PROCESS_NAME = "Suite creation";
     private static final String EDITION_PROCESS_NAME = "Suite editing";
-    private static final String CLONING_PROCESS_NAME = "Suite cloning";
-    private static final String DELETION_PROCESS_NAME = "Suite deletion";
+    private static final String CLONING_SUITE_PROCESS_NAME = "Suite cloning";
+    private static final String DELETION_SUITE_PROCESS_NAME = "Suite deletion";
+    private static final String OPEN_TEST_CASE_MODAL_WINDOW_PROCESS_NAME = "Open test case modal window";
+    private static final String CLONING_TEST_CASE_PROCESS_NAME = "Case cloning";
+    private static final String DELETION_TEST_CASE_PROCESS_NAME = "Case deletion";
     public ProjectPage openPage(String projectUrl) {
         return new ProjectPage().openPage(projectUrl);
     }
@@ -42,23 +45,51 @@ public class ProjectService {
         return new ProjectPage();
     }
 
-    @Step(CLONING_PROCESS_NAME)
+    @Step(CLONING_SUITE_PROCESS_NAME)
     public ProjectPage cloneSuite(String suiteName) {
-        LoggerMessage.logStartProcessInfo(CLONING_PROCESS_NAME);
+        LoggerMessage.logStartProcessInfo(CLONING_SUITE_PROCESS_NAME);
         new ProjectPage().clickThreeDotsSuiteButton(suiteName)
                 .clickCloneSuiteButton()
                 .clickSubmitButton();
-        LoggerMessage.logEndProcessInfo(CLONING_PROCESS_NAME);
+        LoggerMessage.logEndProcessInfo(CLONING_SUITE_PROCESS_NAME);
         return new ProjectPage();
     }
 
-    @Step(DELETION_PROCESS_NAME)
+    @Step(DELETION_SUITE_PROCESS_NAME)
     public ProjectPage deleteSuite(String suiteName) {
-        LoggerMessage.logStartProcessInfo(DELETION_PROCESS_NAME);
+        LoggerMessage.logStartProcessInfo(DELETION_SUITE_PROCESS_NAME);
         new ProjectPage().clickThreeDotsSuiteButton(suiteName)
                 .clickDeleteSuiteButton()
                 .clickSubmitButton();
-        LoggerMessage.logEndProcessInfo(DELETION_PROCESS_NAME);
+        LoggerMessage.logEndProcessInfo(DELETION_SUITE_PROCESS_NAME);
+        return new ProjectPage();
+    }
+
+    @Step(OPEN_TEST_CASE_MODAL_WINDOW_PROCESS_NAME)
+    public ProjectPage openTestCaseModalWindow(String testCaseName) {
+        LoggerMessage.logStartProcessInfo(OPEN_TEST_CASE_MODAL_WINDOW_PROCESS_NAME);
+        new ProjectPage().clickTestCaseMinusIcon(testCaseName);
+        LoggerMessage.logEndProcessInfo(OPEN_TEST_CASE_MODAL_WINDOW_PROCESS_NAME);
+        return new ProjectPage();
+    }
+
+    @Step(CLONING_TEST_CASE_PROCESS_NAME)
+    public ProjectPage cloneTestCase(String testCaseName) {
+        LoggerMessage.logStartProcessInfo(CLONING_TEST_CASE_PROCESS_NAME);
+        openTestCaseModalWindow(testCaseName)
+                .clickCloneTestCaseButton()
+                .clickSubmitButton();
+        LoggerMessage.logEndProcessInfo(CLONING_TEST_CASE_PROCESS_NAME);
+        return new ProjectPage();
+    }
+
+    @Step(DELETION_TEST_CASE_PROCESS_NAME)
+    public ProjectPage deleteTestCase(String testCaseName) {
+        LoggerMessage.logStartProcessInfo(DELETION_TEST_CASE_PROCESS_NAME);
+        openTestCaseModalWindow(testCaseName)
+                .clickDeleteTestCaseButton()
+                .clickDeleteButton();
+        LoggerMessage.logEndProcessInfo(DELETION_TEST_CASE_PROCESS_NAME);
         return new ProjectPage();
     }
 }

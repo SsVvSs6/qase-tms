@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Smoke" parallel="tests" thread-count="2">
-    <test name="Login Page Test">
-        <classes>
-            <class name="tms.onl.tests.ui.LoginPageTest"></class>
-        </classes>
-    </test>
+<suite name="Short" parallel="tests" thread-count="2">
     <test name="Project Page Test">
         <classes>
             <class name="tms.onl.tests.ui.ProjectPageTest"></class>

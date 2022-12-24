@@ -7,4 +7,7 @@ Project Page
     5. Delete suite
     6. Clone suite
     7. Edit suite
-    8. Create quick test
+Test Cases
+    8. Open modal window with description
+    9. Clone test case
+    10. Delete test case

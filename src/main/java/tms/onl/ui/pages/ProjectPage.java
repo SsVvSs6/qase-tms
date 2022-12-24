@@ -13,18 +13,6 @@ public class ProjectPage extends BasePage {
     @FindBy (xpath = "//button/i[@class='far fa-stream']")
     private WebElement suitesColumnButton;
 
-    @FindBy (xpath = "//span[@class='Resizer vertical ']")
-    private WebElement suitesColumnLine;
-
-    @FindBy (xpath = "//div[contains(text(),'Edit')]")
-    private WebElement editSuiteButton;
-
-    @FindBy (xpath = "//div[contains(text(),'Delete')]")
-    private WebElement deleteSuiteButton;
-
-    @FindBy (xpath = "//div[contains(text(),'Clone')]")
-    private WebElement cloneSuiteButton;
-
     @FindBy (xpath = "//span[contains(text(),'Suite was successfully created.')]")
     private WebElement successfulCreateSuiteMessage;
 
@@ -37,9 +25,30 @@ public class ProjectPage extends BasePage {
     @FindBy (xpath = "//span[contains(text(),'Suite was successfully deleted.')]")
     private WebElement successfulDeleteSuiteMessage;
 
+    @FindBy (xpath = "//span[contains(text(),'Case was successfully cloned')]")
+    private WebElement successfulCloneCaseMessage;
+
+    @FindBy (xpath = "//span[contains(text(),'was successfully deleted')]")
+    private WebElement successfulDeleteCaseMessage;
+
+    @FindBy (xpath = "//div[contains(@class,'daLejL')]")
+    private WebElement testCaseModalWindow;
+
+    @FindBy (xpath = "//button[contains(@class,'kUdMAa')]/i[contains(@class,'right')]")
+    private WebElement testCaseRightButton;
+
+    private static final String SUITE_BUTTON_X_PATH = "//div[contains(text(),'%s')]";
+    private static final String EDIT_SUITE_BUTTON_NAME = "Edit";
+    private static final String CLONE_SUITE_BUTTON_NAME = "Clone";
+    private static final String DELETE_SUITE_BUTTON_NAME = "Delete";
     private static final String SUITE_COLUMN_LINE_X_PATH = "//span[@class='Resizer vertical ']";
     private static final String SUITES_THREE_DOTS_X_PATH =
             "//a[@title='%s']/ancestor::div[contains(@class,'CQWegX')]//i[@class='fa fa-ellipsis-h']";
+    private static final String TEST_CASE_MINUS_ICON_X_PATH =
+            "//div[contains(text(),'%s')]/ancestor::div[contains(@class,'F8M2Vb')]//i[contains(@class,'minus')]";
+    private static final String TEST_CASE_BUTTON_X_PATH = "//span[contains(text(),'%s')]/ancestor::button";
+    private static final String CLONE_BUTTON_TEXT = "Clone";
+    private static final String DELETE_BUTTON_TEXT = "Delete";
     private static final String OPEN_PAGE_PROCESS_NAME = "Open project page";
 
     public ProjectPage openPage(String projectUrl) {
@@ -50,9 +59,9 @@ public class ProjectPage extends BasePage {
         return this;
     }
 
-    public SuiteModalWindowPage clickCreateSuiteButton() {
+    public SuiteActionModalWindowPage clickCreateSuiteButton() {
         createSuiteButton.click();
-        return new SuiteModalWindowPage();
+        return new SuiteActionModalWindowPage();
     }
 
     public ProjectPage clickSuiteColumnButton() {
@@ -61,23 +70,43 @@ public class ProjectPage extends BasePage {
     }
 
     public ProjectPage clickThreeDotsSuiteButton(String suiteName) {
-        driver.findElement(By.xpath(String.format(SUITES_THREE_DOTS_X_PATH, suiteName))).click();
+        clickButtonWithStringFormat(SUITES_THREE_DOTS_X_PATH, suiteName);
         return this;
     }
 
-    public SuiteModalWindowPage clickEditSuiteButton() {
-        editSuiteButton.click();
-        return new SuiteModalWindowPage();
+    public SuiteActionModalWindowPage clickEditSuiteButton() {
+        clickButtonWithStringFormat(SUITE_BUTTON_X_PATH, EDIT_SUITE_BUTTON_NAME);
+        return new SuiteActionModalWindowPage();
     }
 
-    public SuiteModalWindowPage clickCloneSuiteButton() {
-        cloneSuiteButton.click();
-        return new SuiteModalWindowPage();
+    public SuiteActionModalWindowPage clickCloneSuiteButton() {
+        clickButtonWithStringFormat(SUITE_BUTTON_X_PATH, CLONE_SUITE_BUTTON_NAME);
+        return new SuiteActionModalWindowPage();
     }
 
-    public SuiteModalWindowPage clickDeleteSuiteButton() {
-        deleteSuiteButton.click();
-        return new SuiteModalWindowPage();
+    public SuiteActionModalWindowPage clickDeleteSuiteButton() {
+        clickButtonWithStringFormat(SUITE_BUTTON_X_PATH, DELETE_SUITE_BUTTON_NAME);
+        return new SuiteActionModalWindowPage();
+    }
+
+    public ProjectPage clickTestCaseMinusIcon(String testCaseName) {
+        clickButtonWithStringFormat(TEST_CASE_MINUS_ICON_X_PATH, testCaseName);
+        waitVisibilityOf(testCaseRightButton);
+        return this;
+    }
+
+    public CaseActionModalWindowPage clickCloneTestCaseButton() {
+        clickButtonWithStringFormat(TEST_CASE_BUTTON_X_PATH, CLONE_BUTTON_TEXT);
+        return new CaseActionModalWindowPage();
+    }
+
+    public CaseActionModalWindowPage clickDeleteTestCaseButton() {
+        clickButtonWithStringFormat(TEST_CASE_BUTTON_X_PATH, DELETE_BUTTON_TEXT);
+        return new CaseActionModalWindowPage();
+    }
+
+    public boolean isTestCaseModalWindowDisplayed() {
+        return testCaseModalWindow.isDisplayed();
     }
 
     public boolean isSuccessfulCreateSuiteMessageDisplayed() {
@@ -96,11 +125,23 @@ public class ProjectPage extends BasePage {
         return isMessageDisplayed(successfulDeleteSuiteMessage);
     }
 
+    public boolean isSuccessfulCloneCaseMessageDisplayed() {
+        return isMessageDisplayed(successfulCloneCaseMessage);
+    }
+
+    public boolean isSuccessfulDeleteCaseMessageDisplayed() {
+        return isMessageDisplayed(successfulDeleteCaseMessage);
+    }
+
     public boolean isColumnLineDisplayed() {
         return driver.findElements(By.xpath(SUITE_COLUMN_LINE_X_PATH)).size() != 0;
     }
 
     private boolean isMessageDisplayed(WebElement element) {
         return waitVisibilityOf(element).isDisplayed();
+    }
+
+    private void clickButtonWithStringFormat(String mainXPath, String sPart) {
+        driver.findElement(By.xpath(String.format(mainXPath, sPart))).click();
     }
 }
