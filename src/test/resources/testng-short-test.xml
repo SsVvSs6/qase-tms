@@ -12,4 +12,14 @@
             <class name="tms.onl.tests.ui.ProjectPageTest"></class>
         </classes>
     </test>
+    <test name="API Test">
+        <groups>
+            <run>
+                <include name="Short"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tms.onl.tests.api.TestCaseTest"></class>
+        </classes>
+    </test>
 </suite>

@@ -1,13 +1,24 @@
-Login Page
-    1. Successful login
-    2. Incorrect password
-Project Page
-    3. Collapse/expand suite column
-    4. Create suite
-    5. Delete suite
-    6. Clone suite
-    7. Edit suite
-Test Cases
-    8. Open modal window with description
-    9. Clone test case
-    10. Delete test case
+UI tests:
+
+    Login Page
+        1. Successful login
+        2. Incorrect password
+    Project Page
+        3. Collapse/expand suite column
+        4. Create suite
+        5. Delete suite
+        6. Clone suite
+        7. Edit suite
+    Test Cases
+        8. Open modal window with description
+        9. Clone test case
+        10. Delete test case
+
+API tests:
+
+    Cases
+        1. Get all project test cases
+        2. Get single test case
+        3. Get not found test case
+        4. Create new test case
+        5. Delete test case
