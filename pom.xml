@@ -20,6 +20,12 @@
         <aspectjweaver.version>1.9.6</aspectjweaver.version>
         <lombok.version>1.18.24</lombok.version>
         <aspect.version>1.9.6</aspect.version>
+        <jackson-dataformat-yaml.version>2.14.1</jackson-dataformat-yaml.version>
+        <log4j-core.version>2.19.0</log4j-core.version>
+        <slf4j-api.version>2.0.5</slf4j-api.version>
+        <allure-testng.version>2.14.0</allure-testng.version>
+        <rest-assured.version>5.2.0</rest-assured.version>
+        <gson.version>2.9.0</gson.version>
     </properties>
 
     <dependencies>
@@ -64,32 +70,32 @@
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
-            <version>2.14.1</version>
+            <version>${jackson-dataformat-yaml.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.19.0</version>
+            <version>${log4j-core.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.5</version>
+            <version>${slf4j-api.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>2.0.5</version>
+            <version>${slf4j-api.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.14.0</version>
+            <version>${allure-testng.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
@@ -103,14 +109,14 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>5.2.0</version>
+            <version>${rest-assured.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.9.0</version>
+            <version>${gson.version}</version>
         </dependency>
     </dependencies>
 
