@@ -2,8 +2,8 @@ package tms.onl.ui.elements.inputs;
 
 public class SuiteModalWindowInput extends BaseInput {
 
-    private String id;
     private static final String INPUT_XPATH = "//input[@id='%s']";
+    private String id;
 
     public SuiteModalWindowInput(String id) {
         this.id = id;

@@ -7,6 +7,19 @@ import tms.onl.ui.utils.LoggerMessage;
 
 public class ProjectPage extends BasePage {
 
+    private static final String SUITE_BUTTON_X_PATH = "//div[contains(text(),'%s')]";
+    private static final String EDIT_SUITE_BUTTON_NAME = "Edit";
+    private static final String CLONE_SUITE_BUTTON_NAME = "Clone";
+    private static final String DELETE_SUITE_BUTTON_NAME = "Delete";
+    private static final String SUITE_COLUMN_LINE_X_PATH = "//span[@class='Resizer vertical ']";
+    private static final String SUITES_THREE_DOTS_X_PATH =
+            "//a[@title='%s']/ancestor::div[contains(@class,'CQWegX')]//i[@class='fa fa-ellipsis-h']";
+    private static final String TEST_CASE_MINUS_ICON_X_PATH =
+            "//div[contains(text(),'%s')]/ancestor::div[contains(@class,'F8M2Vb')]//i[contains(@class,'minus')]";
+    private static final String TEST_CASE_BUTTON_X_PATH = "//span[contains(text(),'%s')]/ancestor::button";
+    private static final String CLONE_BUTTON_TEXT = "Clone";
+    private static final String DELETE_BUTTON_TEXT = "Delete";
+    private static final String OPEN_PAGE_PROCESS_NAME = "Open project page";
     @FindBy (xpath = "//a[@id='create-suite-button']")
     private WebElement createSuiteButton;
 
@@ -39,20 +52,6 @@ public class ProjectPage extends BasePage {
 
     @FindBy (xpath = "//button[@class='hhg1oh']")
     private WebElement closeTestCaseModalWindowButton;
-
-    private static final String SUITE_BUTTON_X_PATH = "//div[contains(text(),'%s')]";
-    private static final String EDIT_SUITE_BUTTON_NAME = "Edit";
-    private static final String CLONE_SUITE_BUTTON_NAME = "Clone";
-    private static final String DELETE_SUITE_BUTTON_NAME = "Delete";
-    private static final String SUITE_COLUMN_LINE_X_PATH = "//span[@class='Resizer vertical ']";
-    private static final String SUITES_THREE_DOTS_X_PATH =
-            "//a[@title='%s']/ancestor::div[contains(@class,'CQWegX')]//i[@class='fa fa-ellipsis-h']";
-    private static final String TEST_CASE_MINUS_ICON_X_PATH =
-            "//div[contains(text(),'%s')]/ancestor::div[contains(@class,'F8M2Vb')]//i[contains(@class,'minus')]";
-    private static final String TEST_CASE_BUTTON_X_PATH = "//span[contains(text(),'%s')]/ancestor::button";
-    private static final String CLONE_BUTTON_TEXT = "Clone";
-    private static final String DELETE_BUTTON_TEXT = "Delete";
-    private static final String OPEN_PAGE_PROCESS_NAME = "Open project page";
 
     public ProjectPage openPage(String projectUrl) {
         LoggerMessage.logStartProcessInfo(OPEN_PAGE_PROCESS_NAME);

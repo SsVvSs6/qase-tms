@@ -13,9 +13,9 @@ import static tms.onl.utils.StringConstant.VALID_PASSWORD;
 
 public class LoginPageTest extends BaseTest {
 
-    protected LoginService loginService;
     private static final String INVALID_EMAIL = "ytrewq@qwerty.com";
     private static final String INVALID_PASSWORD = "sbft!65*";
+    protected LoginService loginService;
 
     @BeforeClass
     public void setUp() {

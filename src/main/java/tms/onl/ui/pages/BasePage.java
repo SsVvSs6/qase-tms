@@ -11,8 +11,8 @@ import java.time.Duration;
 
 public abstract class BasePage {
 
-    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
     private static final int WAIT_TIMEOUT_SECONDS = 10;
+    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
 
     protected BasePage() {
         PageFactory.initElements(driver, this);

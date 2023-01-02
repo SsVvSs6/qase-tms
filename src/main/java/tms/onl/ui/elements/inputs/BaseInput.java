@@ -10,8 +10,8 @@ import java.time.Duration;
 
 public abstract class BaseInput {
 
-    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
     private static final int WAITING_OF_SECONDS = 15;
+    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
 
     protected void writeText(String text, String xPath) {
         new WebDriverWait(driver, Duration.ofSeconds(WAITING_OF_SECONDS))

@@ -8,8 +8,8 @@ import tms.onl.ui.utils.LoggerMessage;
 
 public class LoginService {
 
-    private LoginPage loginPage = new LoginPage();
     private static final String LOGIN_PROCESS_NAME = "Login";
+    private LoginPage loginPage = new LoginPage();
 
     public LoginPage openPage() {
         return loginPage.openPage();

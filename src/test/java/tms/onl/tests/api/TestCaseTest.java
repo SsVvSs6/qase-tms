@@ -16,8 +16,8 @@ import static java.net.HttpURLConnection.HTTP_OK;
 @Listeners(TestListener.class)
 public class TestCaseTest {
 
-    private final String projectCode = "QTQ";
     private static int newCaseId;
+    private final String projectCode = "QTQ";
 
     @Test (description = "Get all test cases", retryAnalyzer = Retry.class, enabled = true)
     public void getAllTestCasesTest() {

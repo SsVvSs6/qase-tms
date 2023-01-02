@@ -2,8 +2,8 @@ package tms.onl.ui.elements.inputs;
 
 public class LoginPageInput extends BaseInput {
 
-    private String id;
     private static final String INPUT_XPATH = "//input[@id='%s']";
+    private String id;
 
     public LoginPageInput(String id) {
         this.id = id;
