@@ -4,10 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import tms.onl.ui.model.Suite;
-import tms.onl.ui.model.User;
-import tms.onl.ui.services.LoginService;
-import tms.onl.ui.services.ProjectService;
+import tms.onl.model.Suite;
+import tms.onl.model.User;
+import tms.onl.services.LoginService;
+import tms.onl.services.ProjectService;
 import tms.onl.utils.Retry;
 
 import static tms.onl.utils.StringConstant.VALID_EMAIL;

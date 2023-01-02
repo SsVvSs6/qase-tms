@@ -5,8 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import tms.onl.api.adapter.CaseAdapter;
-import tms.onl.api.objects.Case;
+import tms.onl.adapter.CaseAdapter;
+import tms.onl.model.Case;
 import tms.onl.utils.Retry;
 import tms.onl.utils.TestListener;
 
@@ -16,8 +16,8 @@ import static java.net.HttpURLConnection.HTTP_OK;
 @Listeners(TestListener.class)
 public class TestCaseTest {
 
-    private final String projectCode = "QTQ";
     private static int newCaseId;
+    private final String projectCode = "QTQ";
 
     @Test (description = "Get all test cases", retryAnalyzer = Retry.class, enabled = true)
     public void getAllTestCasesTest() {
