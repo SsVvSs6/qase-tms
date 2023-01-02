@@ -5,8 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import tms.onl.api.adapter.CaseAdapter;
-import tms.onl.api.objects.Case;
+import tms.onl.adapter.CaseAdapter;
+import tms.onl.model.Case;
 import tms.onl.utils.Retry;
 import tms.onl.utils.TestListener;
 

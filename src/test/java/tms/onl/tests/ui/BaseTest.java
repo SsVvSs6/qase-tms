@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
-import tms.onl.ui.driver.DriverSingleton;
+import tms.onl.driver.DriverSingleton;
 import tms.onl.utils.TestListener;
 
 @Listeners(TestListener.class)

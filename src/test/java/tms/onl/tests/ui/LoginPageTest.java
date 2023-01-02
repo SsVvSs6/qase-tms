@@ -4,12 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import tms.onl.ui.model.User;
-import tms.onl.ui.services.LoginService;
+import tms.onl.model.User;
+import tms.onl.services.LoginService;
 import tms.onl.utils.Retry;
 
-import static tms.onl.utils.StringConstant.VALID_EMAIL;
-import static tms.onl.utils.StringConstant.VALID_PASSWORD;
+import static tms.onl.utils.StringConstant.*;
 
 public class LoginPageTest extends BaseTest {
 
