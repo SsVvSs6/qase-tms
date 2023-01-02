@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import tms.onl.utils.LoggerMessage;
+import tms.onl.utils.TryCatchMethods;
 
 public class ProjectPage extends BasePage {
 
@@ -113,7 +114,7 @@ public class ProjectPage extends BasePage {
     }
 
     public boolean isTestCaseModalWindowDisplayed() {
-        return testCaseModalWindow.isDisplayed();
+        return TryCatchMethods.isElementDisplayed(testCaseModalWindow);
     }
 
     public boolean isSuccessfulCreateSuiteMessageDisplayed() {
@@ -145,7 +146,7 @@ public class ProjectPage extends BasePage {
     }
 
     private boolean isMessageDisplayed(WebElement element) {
-        return waitVisibilityOf(element).isDisplayed();
+        return TryCatchMethods.isElementDisplayed(element);
     }
 
     private void clickButtonWithStringFormat(String mainXPath, String sPart) {

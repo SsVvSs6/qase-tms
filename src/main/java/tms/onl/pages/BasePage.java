@@ -12,13 +12,13 @@ import java.time.Duration;
 public abstract class BasePage {
 
     private static final int WAIT_TIMEOUT_SECONDS = 10;
-    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
+    protected static WebDriver driver = DriverSingleton.getInstance().getDriver();
 
     protected BasePage() {
         PageFactory.initElements(driver, this);
     }
 
-    protected WebElement waitVisibilityOf(WebElement element) {
+    public static WebElement waitVisibilityOf(WebElement element) {
         return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.visibilityOf(element));
     }
